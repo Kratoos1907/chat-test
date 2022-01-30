@@ -1,0 +1,12 @@
+.coverSearch {
+  padding: 0 10px;
+  max-width: 390px;
+  width: 100%;
+}
+.coverSearch > input {
+  border-radius: 16px;
+  border: 1px solid #c5c5c5;
+  height: 30px;
+  padding: 0 0 0 10px;
+  width: 100%;
+}

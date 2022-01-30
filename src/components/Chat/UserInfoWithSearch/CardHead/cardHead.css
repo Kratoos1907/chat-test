@@ -1,0 +1,5 @@
+.coverCardHead {
+  height: 100px;
+  display: grid;
+  align-items: center;
+}

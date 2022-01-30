@@ -1,0 +1,5 @@
+.coverChatComponents{
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 10px;
+}

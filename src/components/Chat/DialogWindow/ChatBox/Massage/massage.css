@@ -1,0 +1,30 @@
+.coverMassageOwn {
+  display: grid;
+  justify-content: end;
+  justify-items: end;
+  margin: unset;
+}
+
+.massageOwn {
+  max-width: 600px;
+  width: 100%;
+  padding: 10px;
+  background-color: #c5c5c5;
+  border-radius: 16px;
+  margin: 0;
+}
+.coverMassageSent{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  justify-content: start;
+  justify-items: start;
+}
+.massageSent{
+  max-width: 600px;
+  width: 100%;
+  padding: 10px;
+  background-color:#e9bf35 ;
+  border-radius: 16px;
+  margin: 0;
+}
