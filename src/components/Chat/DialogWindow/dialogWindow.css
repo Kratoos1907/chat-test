@@ -1,3 +1,6 @@
 .coverDialogWindow{
-  
+  border: 1px solid #c5c5c5;
+  height: 100vh;
+  position: relative;
+  box-sizing: border-box;
 }

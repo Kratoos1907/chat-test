@@ -1,0 +1,19 @@
+.sendMassage {
+  background-color: #c5c5c5;
+  padding: 20px 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.enterMessage {
+  border-radius: 16px;
+  border: 1px solid #c5c5c5;
+  height: 40px;
+  width: 100%;
+  margin: 0px;
+  padding: 0 0 0 0;
+}
+.enterMessage::placeholder{
+  padding: 0 0 0 10px;
+}

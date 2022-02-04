@@ -17,14 +17,38 @@
   grid-template-columns: repeat(2, auto);
   justify-content: space-between;
 }
+.avatarWithoutStatus,
 .avatar {
-  background-color: rgb(138, 43, 226);
+  background-color: #e9bf35;
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  border: solid 1px;
+  border-color: #c5c5c5;
   line-height: 40px;
   text-align: center;
   font-family: 'Supermercado One', cursive;
   text-transform: uppercase;
   color: #FFFFFF;
+  position: relative;
+}
+.avatar::before {
+  content: '';
+  position: absolute;
+  background: chartreuse;
+  width: 10px;
+  height: 10px;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+}
+.massageShort{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.coverDate{
+  justify-self: end;
 }

@@ -1,0 +1,14 @@
+.coverChatName{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  background: #c5c5c5;
+  padding: 10px 10px 10px 20px;
+  box-shadow: 1px 0px 33px 0px rgba(34, 60, 80, 0.2);
+}
+.nickName{
+  text-transform: capitalize;
+  font-weight: 500;
+}

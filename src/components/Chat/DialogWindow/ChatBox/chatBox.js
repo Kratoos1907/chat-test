@@ -1,66 +1,26 @@
 import React from 'react'
 import './chatBox.css'
 import Massage from './Massage/massage'
-export default function ChatBox() {
-  const massages = [
-    {
-      time_date: '12.12.12',
-      massage: 'coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox  coverChatBox coverChatBox',
-      owner: true,
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'not my massage',
-      owner: false, 
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'coverChatBox',
-      owner: true,
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'not my massage not my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massage',
-      owner: false, 
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'coverChatBox',
-      owner: true,
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'not my massage not my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massage',
-      owner: false, 
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'coverChatBox',
-      owner: true,
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'not my massage not my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massage',
-      owner: false, 
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'coverChatBox',
-      owner: true,
-    },
-    {
-      time_date: '12.12.12',
-      massage: 'not my massage not my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massagenot my massage',
-      owner: false, 
-    },
-  ]
+export default function ChatBox({massages}) {
+  const reversMessages = massages.massages;
+  const getFirstLatter = massages.name.substring(0, 1) + massages.last_name.substring(0, 1);
+  
+  function reverseArr(input) {
+    var ret = new Array;
+    for(var i = input.length-1; i >= 0; i--) {
+        ret.push(input[i]);
+    }
+    return ret;
+}
   return (
       <div className="coverChatBox">
-        {
-          massages.map (massage => {
-            return <Massage massage={massage} key={massage.massage}/>
-          })
-        }
+        <div className='chatBox'>
+          {
+           reverseArr(reversMessages).map (massage => {
+              return <Massage massage={massage} avatar={getFirstLatter} key={Math.random()}/>
+            })
+          }
+        </div>
       </div>
   )
 }

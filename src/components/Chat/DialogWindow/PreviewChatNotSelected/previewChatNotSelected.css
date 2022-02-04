@@ -1,0 +1,23 @@
+.previewChatNotSelected{
+  height: calc(100vh - 2px);
+  display: grid;
+  place-content: center;
+  border:1px solid #c5c5c5;
+}
+.textPreview{
+  background: #e9bf35;
+  border-radius: 16px;
+  padding: 5px 20px;
+  color: #FFFFFF;
+  position: relative;
+}
+.textPreview::before{
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: 11px;
+  transform: rotate(45deg);
+  bottom: -5px;
+  background: #e9bf35;
+}
