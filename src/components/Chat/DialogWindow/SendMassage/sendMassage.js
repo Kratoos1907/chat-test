@@ -1,8 +1,8 @@
 
 import './sendMassage.css'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
-import { useState } from 'react/cjs/react.development'
+// import { useState } from 'react/cjs/react.development'
 import axios from 'axios';
 export default function SendMassage({setActiveDialog, data, setData, activeDialog}) {
 
@@ -11,13 +11,12 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
   const UTCDate = moment().unix();
   const [allMeseges, setAllMessages] = useState(activeDialog.massages)
 
-  console.log(data);
   const pushObject = (message) => {
     const findObj =  data.find((usr) => usr.id === activeDialog.id);
     
     data.splice(data.indexOf(findObj), 1);
     
-    findObj.last_message = message;
+    findObj.last_massage = message;
     setData([...data, findObj ])
     
     setAllMessages([...allMeseges, message ])

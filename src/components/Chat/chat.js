@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import DialogWindow from './DialogWindow/dialogWindow';
 import UserInfoWithSearch from './UserInfoWithSearch/UserInfoWithSearch';
 import './chat.css'
 import PreviewChatNotSelected from './DialogWindow/PreviewChatNotSelected/previewChatNotSelected';
-import { useState } from 'react/cjs/react.development';
+// import { useState } from 'react/cjs/react.development';
 const usersData = [
   {
     id:'0',
@@ -90,14 +90,11 @@ export default function ChatComponents({name}) {
 
   const [data, setData] = useState(getData())
   const [activeDialog, setActiveDialog] = useState(null);
-
+  console.log(data);
   useEffect(()=> {
     if(!localStorage.getItem('users_data')) {
-      // console.log('!!!!!!!!!!!!!!!!!!');
       localStorage.setItem('users_data', JSON.stringify(usersData));
-    } else if(activeDialog) {
-      // console.log('@@@@@@@@@@@@@@@@');
-      
+    } else if(activeDialog) {      
       const dataStorage = JSON.parse(localStorage.getItem('users_data'));
       localStorage.removeItem('users_data');
       
@@ -112,8 +109,6 @@ export default function ChatComponents({name}) {
     } 
   },[activeDialog])
 
-  // console.log(activeDialog);
-  // console.log(data);
 
   const renderDialogWindow = () => {
     if(activeDialog) return <DialogWindow data={data} setData={setData} activeDialog={activeDialog} setActiveDialog={setActiveDialog} />

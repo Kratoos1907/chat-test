@@ -1,12 +1,12 @@
-import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useState } from 'react';
+// import { useState } from 'react/cjs/react.development';
 import ChatBox from './ChatBox/chatBox';
 import ChatName from './ChatName/chatName';
 import './dialogWindow.css';
 import SendMassage from './SendMassage/sendMassage';
 
 export default function DialogWindow({setActiveDialog,data, setData, activeDialog}) {
-const [allMessages, setAllMessages] = useState(activeDialog);
+// const [allMessages, setAllMessages] = useState(activeDialog);
 
   return(
       <div className='coverDialogWindow'>

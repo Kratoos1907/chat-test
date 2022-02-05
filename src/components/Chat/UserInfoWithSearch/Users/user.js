@@ -16,7 +16,6 @@ export default function User({user_data, setActiveDialog, activeDialog}) {
   const lastMessage = {}
   const date =  moment.unix(user_data.last_massage.time_date).format('HH:mm MM/DD/YY') 
   const getFirstLatter = user_data.name.substring(0, 1) + user_data.last_name.substring(0, 1);
-  console.log(getFirstLatter);
 
     return(
         <div 

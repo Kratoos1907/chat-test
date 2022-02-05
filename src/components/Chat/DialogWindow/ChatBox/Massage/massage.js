@@ -7,7 +7,6 @@ export default function Massage({massage, avatar}) {
   const renderContent = () => {
     const date =  moment.unix(massage.time_date).format('MM/DD/YY . HH:mm') 
     // const getFirstLatter = user_data.name.substring(0, 1) + user_data.last_name.substring(0, 1);
-    console.log(avatar);
     if(massage.owner){
       return (
         <div className="coverMassageOwn">
