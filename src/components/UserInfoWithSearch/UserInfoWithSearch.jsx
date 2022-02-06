@@ -8,7 +8,7 @@ export default function UserInfoWithSearch({usersData,setData, setActiveDialog, 
 
     return(
         <div className='coverUserInfoWithSearch'>
-          <CardHead setSearchValue={setSearchValue} />
+          <CardHead setData={setData} data={usersData} setSearchValue={setSearchValue} />
           <ChatUsers 
             data={usersData} 
             setData={setData} 

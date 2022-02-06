@@ -4,22 +4,29 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import axios from 'axios';
 export default function SendMassage({setActiveDialog, data, setData, activeDialog}) {
+  const UTCDate = moment().unix();
 
   const [valueMessage, setValueMessage] = useState('');
   const [valueOtherMessage, setValueOtherMessage] = useState('');
-  const UTCDate = moment().unix();
-  const [allMeseges, setAllMessages] = useState(activeDialog.massages)
+  
+  const [allMeseges, setAllMessages] = useState([]);
+  useEffect(()=> {
+    setAllMessages(activeDialog.massages)
+  },[activeDialog.massages])
 
   const pushObject = (message) => {
-    const findObj =  data.find((usr) => usr.id === activeDialog.id);
-    
+    const new_massages = [...allMeseges, message];
+    const updateActiveDialog = {...activeDialog, last_massage: message, massages: new_massages }
+
+    const findObj = data.find((usr) => usr.id === activeDialog.id);
+
     data.splice(data.indexOf(findObj), 1);
     
-    findObj.last_massage = message;
-    setData([...data, findObj ])
+    setActiveDialog(updateActiveDialog)
+    setAllMessages(new_massages);
     
-    setAllMessages([...allMeseges, message ])
-  } 
+    setData([...data, updateActiveDialog ])
+  }
 
   const sendData = (eCode) => {
     if (eCode === 'Enter' && valueMessage.trim().length) {
@@ -29,20 +36,20 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
         owner: true, 
       };
       pushObject(message);
-      setActiveDialog({...activeDialog, last_massage: message});
       setValueMessage('');
-      setTimeout(()=> {getOtherMessage()}, 2000);
+      getOtherMessage();
     } 
   }
 
   const getOtherMessage = async () => {
-      await axios.get('https://api.chucknorris.io/jokes/random')
-      .then((res)=> {
-        setValueOtherMessage(res.data.value)
-      }).catch((rej)=> {
-        console.log(rej);
-      })
+    await axios.get('https://api.chucknorris.io/jokes/random')
+    .then((res)=> {
+      setValueOtherMessage(res.data.value)
+    }).catch((rej)=> {
+      console.log(rej);
+    })
   } 
+
   useEffect(()=>{
     const messageSent = {
       time_date: UTCDate,
@@ -50,15 +57,11 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
       owner: false, 
     };
     if(valueOtherMessage){
-      pushObject(messageSent);
-      setActiveDialog({...activeDialog, last_massage: messageSent});
+      setTimeout(()=> {pushObject(messageSent)},2000);
     }
     setValueOtherMessage('')
   },[valueOtherMessage])
 
-  useEffect(()=>{
-    setActiveDialog({...activeDialog, massages: allMeseges});
-  },[allMeseges])
 
   return (
     <div className="sendMassage">

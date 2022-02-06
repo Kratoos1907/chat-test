@@ -8,7 +8,7 @@ import SendMassage from './SendMassage/sendMassage';
 export default function DialogWindow({setActiveDialog,data, setData, activeDialog}) {
 // const [allMessages, setAllMessages] = useState(activeDialog);
   
-  
+  // console.log(activeDialog);
   return(
       <div className='coverDialogWindow'>
         <ChatName user={activeDialog} />

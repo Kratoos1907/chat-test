@@ -7,11 +7,8 @@ import PreviewChatNotSelected from './DialogWindow/PreviewChatNotSelected/previe
 const usersData = [
   {
     id:'0',
-    user_photo: 'o l',
     name: 'oleg',
     last_name: 'lioda',
-    // user_photo: name.substring(1),
-    time: '12.12.12',
     last_massage:   {
       time_date: 1643660631,
       massage: 'last massage',
@@ -19,11 +16,13 @@ const usersData = [
     },
     massages: [
       {
+        user_id: '0',
         time_date: '1643660631',
         massage: 'my$$$$$$$$$$$4 massage',
         owner: true,
       },
       {
+        user_id: '0',
         time_date: '1643660631',
         massage: 'not my massage',
         owner: false, 
@@ -32,10 +31,8 @@ const usersData = [
   },
   {
     id:'1',
-    user_photo: 'n l',
     name: 'nastia',
     last_name: 'test',
-    time: '12.12.12',
     last_massage:   {
       time_date: 1643660631,
       massage: 'last massage',
@@ -43,11 +40,13 @@ const usersData = [
     },
     massages: [
       {
+        user_id: '1',
         time_date: '1643660631',
         massage: 'my @@@@@@@@@@@@@@ massage',
         owner: true,
       },
       {
+        user_id: '1',
         time_date: '1643660631',
         massage: 'not my massage',
         owner: false, 
@@ -56,10 +55,8 @@ const usersData = [
   },
   {
     id:'2',
-    user_photo: 'r y',
     name: 'roman',
     last_name: 'yellow',
-    time: '12.12.12',
     last_massage:   {
         time_date: 1643660631,
         massage: 'last massage',
@@ -67,11 +64,13 @@ const usersData = [
     },
     massages: [
       {
+        user_id: '2',
         time_date: '1643660631',
         massage: 'my new !!!!!!!!!! massage',
         owner: true,
       },
       {
+        user_id: '2',
         time_date: '1643660631',
         massage: 'not my massage',
         owner: false, 
@@ -90,24 +89,18 @@ export default function ChatComponents({name}) {
 
   const [data, setData] = useState(getData())
   const [activeDialog, setActiveDialog] = useState(null);
-  console.log(data);
+
+  useEffect(()=> {
+    const dataStorage = JSON.parse(localStorage.getItem('users_data'));
+    setData(dataStorage);
+  },[])
   useEffect(()=> {
     if(!localStorage.getItem('users_data')) {
-      localStorage.setItem('users_data', JSON.stringify(usersData));
-    } else if(activeDialog) {      
-      const dataStorage = JSON.parse(localStorage.getItem('users_data'));
-      localStorage.removeItem('users_data');
-      
-      const getObg = dataStorage.find(user => user.id === activeDialog.id )
-      
-      dataStorage.splice(dataStorage.indexOf(getObg), 1);
-      
-      dataStorage.push(activeDialog)
-
-      localStorage.setItem('users_data', JSON.stringify(dataStorage));
-      setData(dataStorage)
+      localStorage.setItem('users_data', JSON.stringify(data));
+    } else if(activeDialog) {
+      localStorage.setItem('users_data', JSON.stringify(data));
     } 
-  },[activeDialog])
+  },[activeDialog, data])
 
 
   const renderDialogWindow = () => {

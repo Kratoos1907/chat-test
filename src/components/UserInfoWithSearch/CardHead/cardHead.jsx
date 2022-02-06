@@ -4,7 +4,7 @@ import './cardHead.css'
 // import { useState } from 'react/cjs/react.development';
 import AddNewUser from './AddNewUser/addNewUser';
 
-export default function CardHead({setSearchValue, }) {
+export default function CardHead({setSearchValue, setData, data}) {
   const [open, setOpen] = useState(false);
     return(
         <div className='coverCardHead'>
@@ -14,7 +14,7 @@ export default function CardHead({setSearchValue, }) {
             <div className='addAcc' onClick={()=> setOpen(true)}/>
           </div>
           <Search setSearchValue={setSearchValue} />
-          {open && <AddNewUser setOpen={setOpen}/> }
+          {open && <AddNewUser data={data}  setData={setData} setOpen={setOpen}/> }
         </div>
     )
 }

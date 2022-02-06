@@ -23,7 +23,7 @@ export default function ChatUsers({setData, data, setActiveDialog, activeDialog,
 
     useEffect(()=> {
       setSortData(sortDialogsByLastMassageTime())
-    },[activeDialog, searchValue]);
+    },[activeDialog, searchValue, data]);
     
     // useEffect(()=>{
     //   setFillterUserData(findUser());
