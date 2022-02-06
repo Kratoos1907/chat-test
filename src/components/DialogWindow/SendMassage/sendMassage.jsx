@@ -2,7 +2,6 @@
 import './sendMassage.css'
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
-// import { useState } from 'react/cjs/react.development'
 import axios from 'axios';
 export default function SendMassage({setActiveDialog, data, setData, activeDialog}) {
 

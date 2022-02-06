@@ -127,7 +127,7 @@ export default function ChatComponents({name}) {
               />
             {renderDialogWindow()}
         </div>
-    }
-              </>
+      }
+    </>
     )
 }
