@@ -1,43 +1,53 @@
 .coverCardHead {
-  height: 100px;
-  display: grid;
-  align-items: center;
-  border-bottom: 1px solid #c5c5c5;
-  
+    height: 100px;
+    display: grid;
+    align-items: center;
+    border-bottom: 1px solid #c5c5c5;
 }
-.cover{
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: space-between;
-  align-items: center;
+
+.cover {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .mainUser {
-  display: grid;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  align-items: center;
-  background-color: #e9bf35;
-  font-family: 'Supermercado One', cursive;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
+    display: grid;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    background-color: #e9bf35;
+    font-family: 'Supermercado One', cursive;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
 }
-.addAcc{
-  background-color: #c5c5c5;
-  height: 20px;
-  width: 2px;
-  display: grid;
-  justify-items: end;
-  margin-right: 20px;
-  position: relative;
-  cursor: pointer;
+
+.coverCancel {
+    width: 20px;
+    margin-right: 10px;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
 }
-.addAcc::before{
-  content: '';
-  transform: rotate(90deg);
-  position: absolute;
-  height: 20px;
-  width: 2px;
-  background-color: #c5c5c5;
+
+.addAcc {
+    background-color: #c5c5c5;
+    height: 20px;
+    width: 2px;
+    display: grid;
+    /* margin-right: -20px; */
+    justify-items: end;
+    position: relative;
+}
+
+.addAcc::before {
+    content: '';
+    transform: rotate(90deg);
+    position: absolute;
+    height: 20px;
+    width: 2px;
+    background-color: #c5c5c5;
 }

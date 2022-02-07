@@ -10,8 +10,9 @@ export default function CardHead({setSearchValue, setData, data}) {
         <div className='coverCardHead'>
           <div className='cover'>
             <p className='mainUser'>OL</p>
-
-            <div className='addAcc' onClick={()=> setOpen(true)} />
+            <div className="coverCancel" onClick={()=> setOpen(true)}>
+              <div className='addAcc'  />
+            </div>
           </div>
           <Search setSearchValue={setSearchValue} />
           {open && <AddNewUser data={data}  setData={setData} setOpen={setOpen}/> }

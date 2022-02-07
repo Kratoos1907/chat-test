@@ -25,7 +25,6 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
       const newData = {...prev};
       newData.massages = [...newData.massages, massage];
       const getObj = newData.users.find((usr)=> usr.id === activeDialog.id || usr.id === massage.user_id);
-      // const getObj = newData.users.find((usr)=> usr.id === massage.user_id);
       getObj.last_massage = massage;
       return newData;
     })
