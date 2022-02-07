@@ -1,0 +1,53 @@
+.closeBg {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.coverUserInfoPopUp {
+    padding: 10px;
+    width: 300px;
+    height: 100px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 4px 4px 38px 0px rgba(34, 60, 80, 0.2);
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: grid;
+    gap: 15px;
+    align-content: center;
+}
+
+.coverInfoAboutUser {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+}
+
+.removeUser {
+    height: 30px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #c5c5c5;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.removeUser>span {
+    text-transform: capitalize;
+}
+
+.removeUser:hover {
+    transition: 0.5s;
+    background-color: #c5c5c5;
+}

@@ -3,7 +3,6 @@ import DialogWindow from './DialogWindow/dialogWindow';
 import UserInfoWithSearch from './UserInfoWithSearch/UserInfoWithSearch';
 import './chat.css'
 import PreviewChatNotSelected from './DialogWindow/PreviewChatNotSelected/previewChatNotSelected';
-// import { useState } from 'react/cjs/react.development';
 const usersData = {
   users: [
   {
@@ -53,8 +52,11 @@ export default function ChatComponents({name}) {
   const [activeDialog, setActiveDialog] = useState(null);
 
   useEffect(()=> {
-    const dataStorage = JSON.parse(localStorage.getItem('users_data'));
-    setData(dataStorage);
+    const dataStorage = localStorage.getItem('users_data');
+    if(dataStorage){
+      const parsData = JSON.parse(dataStorage);
+      setData(parsData);
+    }
   },[])
   useEffect(()=> {
     if(!localStorage.getItem('users_data')) {

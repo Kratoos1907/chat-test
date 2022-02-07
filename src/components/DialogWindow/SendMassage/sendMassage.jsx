@@ -3,6 +3,8 @@ import './sendMassage.css'
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import axios from 'axios';
+import sendIcon from './sendIcon.svg'
+
 export default function SendMassage({setActiveDialog, data, setData, activeDialog}) {
   const UTCDate = moment().unix();
 
@@ -28,7 +30,7 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
       return newData;
     })
   }
-  const sendData = (eCode) => {
+  const sendData = (eCode ) => {
     if (eCode === 'Enter' && valueMessage.trim().length) {
       const massage = {
         user_id: activeDialog.id,
@@ -79,13 +81,18 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
 
   return (
     <div className="sendMassage">
+      <div className="coverInputSend">
         <input 
           className='enterMessage'
           value={valueMessage}
           placeholder='Type your message:'
           onChange={(e)=> {setValueMessage(e.target.value)}}
           onKeyDown={(e) =>  sendData(e.code) }
-        />
+          />
+        <button className='sendMessageIcon' onClick={(e) =>  sendData('Enter')}  >
+          <img src={sendIcon} alt="telegrama icon" />
+        </button>
+      </div>
     </div>
   )
 }

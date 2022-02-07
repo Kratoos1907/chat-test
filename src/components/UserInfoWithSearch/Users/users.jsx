@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { useEffect, useState } from 'react/cjs/react.development';
 import User from './user';
 
 export default function ChatUsers({setData, data, setActiveDialog, activeDialog, searchValue}) {
@@ -18,6 +17,8 @@ export default function ChatUsers({setData, data, setActiveDialog, activeDialog,
       return sort
     };
 
+    
+
     useEffect(()=> {
       setSortData(sortDialogsByLastMassageTime())
     },[activeDialog, searchValue, data]);
@@ -31,7 +32,7 @@ export default function ChatUsers({setData, data, setActiveDialog, activeDialog,
                           data={data}
                           setData={setData}
                           activeDialog={activeDialog}
-                          key={user.name}
+                          key={user.id}
                         />
             })}
         </div>

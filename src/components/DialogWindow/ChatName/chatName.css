@@ -1,14 +1,40 @@
-.coverChatName{
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  justify-content: start;
-  align-items: center;
-  gap: 10px;
-  background: #c5c5c5;
-  padding: 10px 10px 10px 20px;
-  box-shadow: 1px 0px 33px 0px rgba(34, 60, 80, 0.2);
+.wrapChatName {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    align-items: center;
+    background: #c5c5c5;
+    box-shadow: 1px 0px 33px 0px rgba(34, 60, 80, 0.2);
 }
-.nickName{
-  text-transform: capitalize;
-  font-weight: 500;
+
+.coverChatName {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px 10px 20px;
+}
+
+.nickName {
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.viewInfo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+.viewInfo:hover {
+    transition: 0.5s;
+    background-color: #e9bf35;
+    border: 2px solid #e9bf35;
 }

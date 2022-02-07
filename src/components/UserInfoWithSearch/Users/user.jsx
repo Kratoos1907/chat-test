@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { useEffect } from 'react';
+import React from 'react';
 import './user.css'
 export default function User({user_data,setData, setActiveDialog,data, activeDialog}) {
 
@@ -24,9 +24,14 @@ export default function User({user_data,setData, setActiveDialog,data, activeDia
     return data.massages.filter((msg) => msg.user_id === user_data.id).filter(usrMsg => !usrMsg.read).length;
   }
 
-   const checkUnreadMassages = ( ) => {
-     if(findUnreadMassage() !== undefined && findUnreadMassage()) return findUnreadMassage()
-     else return getFirstLatter
+   const checkUnreadMassages = () => {
+     if(findUnreadMassage() !== undefined && findUnreadMassage()) return findUnreadMassage();
+     else return getFirstLatter;
+    }
+    const getStyleNotifications = () => {
+     if(findUnreadMassage() !== undefined && findUnreadMassage()) return {background: '#6b591c'};
+     else return {}
+
    }
     return(
         <div 
@@ -35,7 +40,7 @@ export default function User({user_data,setData, setActiveDialog,data, activeDia
           style={active_user()}
           id={activeDialog && activeDialog.id === user_data.id ? `${user_data.id}-user` : ""}
         >
-            <p className='avatar'>{checkUnreadMassages()}</p>
+            <p className='avatar' style={getStyleNotifications()}>{checkUnreadMassages()}</p>
 
             <div className='chatShort'>
               <p>{user_data.name} {user_data.last_name}</p>

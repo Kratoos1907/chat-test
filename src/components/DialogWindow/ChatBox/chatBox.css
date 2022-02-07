@@ -1,31 +1,35 @@
-.coverChatBox{
-  margin: 0;
-  position: relative;
-  height: calc(100% - 152px);
-  box-sizing: border-box;
+.coverChatBox {
+    margin: 0;
+    position: relative;
+    height: calc(100% - 142px);
+    box-sizing: border-box;
 }
-.chatBox{
-  /* height: 100%; */
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  padding: 0 10px 0px 10px;
-  flex-direction: column-reverse;
+
+.chatBox {
+    /* height: 100%; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    padding: 0 10px 0px 10px;
+    flex-direction: column-reverse;
 }
+
 .chatBox::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
+
 .chatBox::-webkit-scrollbar-track {
-  box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.07);
-  border-radius: 500px;
-  border: 5px solid #FFFFFF;
+    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 500px;
+    border: 5px solid #FFFFFF;
 }
+
 .chatBox::-webkit-scrollbar-thumb {
-  background: #e9bf35;
-  border-radius: 6px;
+    background: #e9bf35;
+    border-radius: 6px;
 }

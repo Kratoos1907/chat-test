@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// import { useState } from 'react/cjs/react.development';
+import React from 'react';
 import ChatBox from './ChatBox/chatBox';
 import ChatName from './ChatName/chatName';
 import './dialogWindow.css';
@@ -10,14 +9,14 @@ export default function DialogWindow({setActiveDialog,data, setData, activeDialo
   const getMassagesByUserId=()=>{
     const findMessage = data.massages.filter(msg=> msg.user_id === activeDialog.id)
     if(findMessage.length){
-      return  <ChatBox data={data} activeDialog={activeDialog}/>
+      return <ChatBox data={data} activeDialog={activeDialog}/>
     } else{
       return <PreviewChatNotSelected text={'No massages yet'} />
     }
   }
   return(
       <div className='coverDialogWindow'>
-        <ChatName user={activeDialog} />
+        <ChatName setActiveDialog={setActiveDialog} user={activeDialog} setData={setData} />
         {getMassagesByUserId()}
         <ChatBox data={data} activeDialog={activeDialog}/>
         <SendMassage setData={setData} data={data} activeDialog={activeDialog} setActiveDialog={setActiveDialog}/>
