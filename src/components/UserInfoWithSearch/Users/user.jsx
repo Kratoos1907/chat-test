@@ -1,29 +1,41 @@
 import moment from 'moment';
 import React, { useEffect } from 'react';
 import './user.css'
-export default function User({user_data, setActiveDialog, activeDialog}) {
+export default function User({user_data,setData, setActiveDialog,data, activeDialog}) {
 
   const active_user = () => {
     if(activeDialog && activeDialog.id === user_data.id) return { background: '#c5c5c5'}
     else return {}
   }
-
   const unActiveChat = () => {
     if(activeDialog && activeDialog.id === user_data.id) setActiveDialog(null);
-    // else if(activeDialog && activeDialog.id !== user_data.id) setActiveDialog(null);
-    else setActiveDialog(user_data);
+    else {
+      setData((prev)=> {
+        const dataUser = {...prev}
+        dataUser.massages.filter((msg) => msg.user_id === user_data.id).map(msg => msg.read = true)
+        return dataUser
+      } )
+      setActiveDialog(user_data);
+    }
   }
-  const lastMessage = {}
   const date =  moment.unix(user_data.last_massage.time_date).format('HH:mm MM/DD/YY') 
   const getFirstLatter = user_data.name.substring(0, 1) + user_data.last_name.substring(0, 1);
+  const findUnreadMassage = () => {
+    return data.massages.filter((msg) => msg.user_id === user_data.id).filter(usrMsg => !usrMsg.read).length;
+  }
 
+   const checkUnreadMassages = ( ) => {
+     if(findUnreadMassage()) return findUnreadMassage()
+     else return getFirstLatter
+   }
     return(
         <div 
           className='coverUserCard' 
           onClick={()=> unActiveChat() }
           style={active_user()}
+          id={activeDialog && activeDialog.id === user_data.id ? `${user_data.id}-user` : ""}
         >
-            <p className='avatar'>{getFirstLatter}</p>
+            <p className='avatar'>{checkUnreadMassages()}</p>
 
             <div className='chatShort'>
               <p>{user_data.name} {user_data.last_name}</p>

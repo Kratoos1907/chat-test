@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CardHead from './CardHead/cardHead';
-import Search from './CardHead/Search/search';
 import ChatUsers from './Users/users';
+import './UserInfoWithSearch.css'
 
 export default function UserInfoWithSearch({usersData,setData, setActiveDialog, activeDialog}) {
   const [searchValue, setSearchValue] = useState('');

@@ -9,33 +9,35 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
   const [valueMessage, setValueMessage] = useState('');
   const [valueOtherMessage, setValueOtherMessage] = useState('');
   
-  const [allMeseges, setAllMessages] = useState([]);
-  useEffect(()=> {
-    setAllMessages(activeDialog.massages)
-  },[activeDialog.massages])
-
-  const pushObject = (message) => {
-    const new_massages = [...allMeseges, message];
-    const updateActiveDialog = {...activeDialog, last_massage: message, massages: new_massages }
-
-    const findObj = data.find((usr) => usr.id === activeDialog.id);
-
-    data.splice(data.indexOf(findObj), 1);
+  const pushObject = (massage) => {
+    const nonMassage = document.getElementById('NonMassage');
+    if(activeDialog && !!!nonMassage){
+      setActiveDialog((prev) => {
+        const newUser = {...prev};
+        newUser.last_massage = massage;
+        return newUser;
+      });
+    }
     
-    setActiveDialog(updateActiveDialog)
-    setAllMessages(new_massages);
-    
-    setData([...data, updateActiveDialog ])
+    setData((prev)=> {
+      const newData = {...prev};
+      newData.massages = [...newData.massages, massage];
+      const getObj = newData.users.find((usr)=> usr.id === activeDialog.id || usr.id === massage.user_id);
+      // const getObj = newData.users.find((usr)=> usr.id === massage.user_id);
+      getObj.last_massage = massage;
+      return newData;
+    })
   }
-
   const sendData = (eCode) => {
     if (eCode === 'Enter' && valueMessage.trim().length) {
-      const message = {
+      const massage = {
+        user_id: activeDialog.id,
         time_date: UTCDate,
         massage: valueMessage,
-        owner: true, 
+        owner: true,
+        read: true,
       };
-      pushObject(message);
+      pushObject(massage);
       setValueMessage('');
       getOtherMessage();
     } 
@@ -52,15 +54,27 @@ export default function SendMassage({setActiveDialog, data, setData, activeDialo
 
   useEffect(()=>{
     const messageSent = {
+      user_id: activeDialog.id,
       time_date: UTCDate,
       massage: valueOtherMessage,
       owner: false, 
+      read: true,
     };
-    if(valueOtherMessage){
-      setTimeout(()=> {pushObject(messageSent)},2000);
-    }
+
+    setTimeout(()=> {
+        const openDialog = document.getElementById(`${activeDialog.id}-user`)
+        
+        if(valueOtherMessage){
+          if(!!!openDialog){
+            messageSent.read = false;
+          }
+          pushObject(messageSent)
+        }
+    }, 3000);
+
     setValueOtherMessage('')
   },[valueOtherMessage])
+
 
 
   return (

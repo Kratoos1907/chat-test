@@ -16,7 +16,7 @@ export default function Massage({massage, avatar}) {
       )
     } else {
       return (
-        <div className="coverMassageSent">
+        <div className="coverMassageSent" style={!massage.read ? {display: 'none'} : {}} >
           <p className='avatarWithoutStatus' >{avatar}</p>
           <div className='coverInfo' >
             <p className='massageSent'>{massage.massage}</p>

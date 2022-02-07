@@ -1,14 +1,14 @@
 import React from 'react'
 import './chatBox.css'
 import Massage from './Massage/massage'
-export default function ChatBox({massages}) {
-  const reversMessages = massages.massages;
-  const getFirstLatter = massages.name.substring(0, 1) + massages.last_name.substring(0, 1);
+export default function ChatBox({data , activeDialog}) {
+  const getFirstLatter = activeDialog.name.substring(0, 1) + activeDialog.last_name.substring(0, 1);
   
   function reverseArr(input) {
+    const filterMessagesByIdUser = activeDialog && input.filter((massage) => massage.user_id === activeDialog.id )
     var ret = new Array();
-    for(var i = input.length-1; i >= 0; i--) {
-        ret.push(input[i]);
+    for(var i = filterMessagesByIdUser.length-1; i >= 0; i--) {
+        ret.push(filterMessagesByIdUser[i]);
     }
     return ret;
   }
@@ -16,7 +16,7 @@ export default function ChatBox({massages}) {
       <div className="coverChatBox">
         <div className='chatBox'>
           {
-           reverseArr(reversMessages).map (massage => {
+           reverseArr(data.massages).map (massage => {
               return <Massage massage={massage} avatar={getFirstLatter} key={Math.random()+massage}/>
             })
           }

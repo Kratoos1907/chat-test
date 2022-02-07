@@ -12,25 +12,19 @@ export default function AddNewUser({setOpen, setData, data}) {
     const id_user = Math.random();
     const new_user = {
       id: id_user,
-      user_photo: 'o l',
       name: name,
       last_name: lastName,
-      time: '12.12.12',
       last_massage:   {
         time_date: UTCDate,
         massage: '',
         owner: true,
       },
-      massages: [
-        {
-          time_date: '1643660631',
-          massage: 'my$$$$$$$$$$$4 massage',
-          owner: true,
-        }
-      ],
     }
-    console.log(new_user);
-    setData([...data, new_user]);
+    setData((prev) => {
+      const allData = {...prev}
+      allData.users.push(new_user);
+      return allData
+    });
     setOpen(false);
   }
   return (

@@ -1,54 +1,71 @@
 .coverUserCard {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px;
-  max-width: 400px;
-  width: 100%;
-  padding: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.089);
-  cursor: pointer;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.089);
+    cursor: pointer;
 }
+
 .coverUserCard:hover {
-  background-color: rgba(0, 0, 0, 0.089);
-  transition: 0.5s;
+    background-color: rgba(0, 0, 0, 0.089);
+    transition: 0.5s;
 }
+
 .chatShort {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
 }
+
+.chatShort p:first-child {
+    text-transform: capitalize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* .chatShort>p {
+    max-width: 400px;
+    width: 100%;
+} */
+
 .avatarWithoutStatus,
 .avatar {
-  background-color: #e9bf35;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  border: solid 1px;
-  border-color: #c5c5c5;
-  line-height: 40px;
-  text-align: center;
-  font-family: 'Supermercado One', cursive;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  position: relative;
+    background-color: #e9bf35;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: solid 1px;
+    border-color: #c5c5c5;
+    line-height: 40px;
+    text-align: center;
+    font-family: 'Supermercado One', cursive;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    position: relative;
 }
+
 .avatar::before {
-  content: '';
-  position: absolute;
-  background: chartreuse;
-  width: 10px;
-  height: 10px;
-  bottom: 0;
-  right: 0;
-  border-radius: 50%;
+    content: '';
+    position: absolute;
+    background: chartreuse;
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
 }
-.massageShort{
-  grid-column-start: 1;
-  grid-column-end: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+.massageShort {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-.coverDate{
-  justify-self: end;
+
+.coverDate {
+    justify-self: end;
 }
