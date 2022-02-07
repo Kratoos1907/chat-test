@@ -25,7 +25,7 @@ export default function User({user_data,setData, setActiveDialog,data, activeDia
   }
 
    const checkUnreadMassages = ( ) => {
-     if(findUnreadMassage()) return findUnreadMassage()
+     if(findUnreadMassage() !== undefined && findUnreadMassage()) return findUnreadMassage()
      else return getFirstLatter
    }
     return(
